@@ -8,11 +8,12 @@ function gerar() {
     if (cartaoExistente) {
         cartaoExistente.remove();
     }
-    const nomeValue = nome.value;
-    const ocupacaoValue = ocupacao.value;
-    const telefoneValue = telefone.value;
-
-    if (!nomeValue || !ocupacaoValue || !telefoneValue) {
+    const pessoa = {
+        nome: nome.value,
+        ocupacao: ocupacao.value,
+        telefone: telefone.value
+    };
+    if (!pessoa.nome || !pessoa.ocupacao || !pessoa.telefone) {
         alert('Por favor, preencha todos os campos.');
         return;
     }
@@ -20,9 +21,9 @@ function gerar() {
     const cartao = document.createElement('div');
     cartao.className = 'cartao';
     cartao.innerHTML = `
-        <h2>${nomeValue}</h2>
-        <p>Ocupação: ${ocupacaoValue}</p>
-        <p>Telefone: ${telefoneValue}</p>
+        <h2>${pessoa.nome}</h2>
+        <p>Ocupação: ${pessoa.ocupacao}</p>
+        <p>Telefone: ${pessoa.telefone}</p>
     `;
     nome.value = '';
     ocupacao.value = '';
